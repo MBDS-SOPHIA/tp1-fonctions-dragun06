@@ -37,27 +37,18 @@ fun factoriel(x: Int): Int {
 factoriel(5)
 
 //- Ecrire une fonction qui affiche les x premiers nombres premiers
-fun estPremier(x: Int): Boolean {
-    if (x <= 1) {
-        return false
-    }
-    for (i in 2 until x) {
-        if (x % i == 0) {
-            return false
-        }
-    }
-    return true
-}
 
 fun numeroPremier(x: Int): List<Int> {
-    val numbers = mutableListOf<Int>()
-    var i = 2
-    while (numbers.size < x) {
-        if (estPremier(i)) {
-            numbers.add(i)
+    val premier = mutableListOf<Int>()
+    var number = 2
+    
+    while (premier.size < count) {
+        if (isPrime(number)) {
+            premier.add(number)
         }
-        i++
+        number = if (number == 2) 3 else number + 2
     }
-    return numbers
+    
+    return premier
 }
 numeroPremier(10)
